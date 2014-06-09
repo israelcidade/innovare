@@ -1,3 +1,24 @@
 <div>
 	<img src="<%URLPADRAO%>html/style/images/fundo.jpg" id="top">
 </div>
+ <div id="wrapper">
+	Email: <INPUT TYPE="text" NAME="email" SIZE="40" MAXLENGTH="40" VALUE="">
+	<INPUT type="button" onClick="salva()" NAME="submit" VALUE="Enviar">
+</div>
+<script type="text/javascript">
+	function salva(){
+		var email = $("input[name=email]").val();
+		$.post("<%URLPADRAO%>lib/ajax/salvaemail.php",
+				{email: email},
+				function(retorno){
+					if (retorno == true){
+						alert('Email Cadastrado com Sucesso!');
+						$("input[name=email]").val('');
+					}else{
+						alert('Falha ao Cadastrar Email, tente Novamente mais Tarde!');
+						$("input[name=email]").val('');
+					}
+				}
+			);
+		}
+</script>
