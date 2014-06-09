@@ -4,7 +4,7 @@
 
 	#Instancia o objeto
 	$banco = new bancoinicio();
-
+teste
 	#Imprimi valores
 	$Conteudo = $banco->CarregaHtml('inicio');
 ?>
