@@ -2,8 +2,10 @@
 	<img src="<%URLPADRAO%>html/style/images/fundo.jpg" id="top">
 </div>
  <div id="wrapper">
-	Email: <INPUT TYPE="text" NAME="email" SIZE="40" MAXLENGTH="40" VALUE="">
-	<INPUT type="button" onClick="salva()" NAME="submit" VALUE="Enviar">
+ 	<form>
+		<label>Email: <input type="email" name="email" size="40" maxlength="40" value="" required></label>
+		<input type="button" onClick="salva()" name="submit" value="Enviar">
+	</form>
 </div>
 <script type="text/javascript">
 	function salva(){
@@ -15,7 +17,7 @@
 						alert('Email Cadastrado com Sucesso!');
 						$("input[name=email]").val('');
 					}else{
-						alert('Falha ao Cadastrar Email, tente Novamente mais Tarde!');
+						alert('Email inválido. Tente Novamente!');
 						$("input[name=email]").val('');
 					}
 				}
