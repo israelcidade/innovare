@@ -35,7 +35,6 @@ p{
 	width: 100%;
 	height: 20%;
   background-color: #17293F;
-  padding-top: 10px;
 }
 
 .formulario{
@@ -54,7 +53,7 @@ p{
   width: 50%;
   height: 100%;
   background-color: #17293F;
-  text-align: left;
+  text-align: center;
 }
 
 .btn{
