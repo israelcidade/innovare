@@ -85,12 +85,12 @@
             </div>
             <div class="col-xs-4">
             	<p>RECEBA NOSSA NEWSLETTER</p>
-                	<form class="form-inline spacer-1x">
+                	<div class="form-inline spacer-1x">
                     <div class="form-group">
                         <input type="email" class="form-control" id="exampleInputEmail2" placeholder="E-mail">
                     </div>
-                    <button type="submit" class="btn btn-danger">Sign in</button>
-                   	</form>
+                    <button onClick="salva()" class="btn btn-danger">Sign in</button>
+                   	</div>
 
             </div>
         </div>
@@ -107,16 +107,16 @@
 </html>
 <script type="text/javascript">
     function salva(){
-        var email = $("input[name=email]").val();
+        var email = $("input[id=exampleInputEmail2]").val();
         $.post("http://localhost/innovare/lib/ajax/salvaemail.php",
                 {email: email},
                 function(retorno){
                     if (retorno == true){
                         alert('Email Cadastrado com Sucesso!');
-                        $("input[name=email]").val('');
+                        $("input[id=exampleInputEmail2]").val('');
                     }else{
                         alert('Email inválido. Tente Novamente!');
-                        $("input[name=email]").val('');
+                        $("input[id=exampleInputEmail2]").val('');
                     }
                 }
             );
