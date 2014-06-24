@@ -1,40 +1,36 @@
-<div id="top">
-	
+<div class="top-slider">
+    <div class="prev-control"><img src="html/style/images/prev.png" alt="Prev"/></div>
+    <div class="next-control"><img src="html/style/images/next.png" alt="Next"/></div>
 </div>
-<div class="footer">
-
-	<div class="formulario">
-		<center><form>
-			<label><i>Quer saber quando o site ficará pronto?<br>
-			Cadastre o seu Email que nós te avisaremos!<br></i>
-			<input class="form" type="email" name="email" size="30" maxlength="40" value="" required></label>
-			<input class="btn btn-danger" type="button" onClick="salva()" name="submit" value="Enviar">
-		</form></center>
-	</div>
-
-	<div class="texto">
-		<i>INNOVARE  é feita de pessoas, profissionais  com uma historia de 25 anos de trabalho, atuando em Londrina e região sempre primando pela qualidade e pontualidade. 
-		Pessoas com objetivo e comprometimento com o cliente, buscando a inovação, trabalhando conectados com as tendências internacionais de mercado, para oferecer  a você um armário ou closet personalizado, flexível, criativo e inovador, tornado o seu móvel único.</i>
-	</div>
-	<div class="logo">
-		<center><img src="<%URLPADRAO%>html/style/images/logo.png" width="200" height="100%"></center>
-	</div>
+<div class="diamond">
+	<img src="html/style/images/diamond.png" alt="diamond"/>
+</div>
+<div class="container">
+	<h2 class="text-center">Cada <strong>detalhe</strong> escolhido<br>torna seu sonho <strong>realidade!</strong></h2>
+    
+    <div class="row spacer-4x condense">
+    	<div class="col-xs-4 text-center">
+			<div class="img-holder"><img src="html/style/images/cloud.png" class="img-responsive" alt="Cloud"/></div>
+            <p class="spacer-1x">Se seu <strong>sonho</strong><br>&eacute; um arm&aacute;rio ou closet<br>personalizado...</p>
+        </div>
+        <div class="col-xs-4 text-center">
+			<div class="img-holder"><img src="html/style/images/hanger.png" class="img-responsive" alt="Hanger"/></div>
+            <p class="spacer-1x">n&oacute;s temos <strong>inumeras</strong><br>op&ccedil;&ocirc;es para<br>tornar-lo...</p>
+        </div>
+        <div class="col-xs-4 text-center">
+			<div class="img-holder"><img src="html/style/images/gift.png" class="img-responsive" alt="Gift"/></div>
+            <p class="spacer-1x"><strong>...REALIDADE!</strong></p>
+        </div>
+    </div>    
 </div>
 
-<script type="text/javascript">
-	function salva(){
-		var email = $("input[name=email]").val();
-		$.post("<%URLPADRAO%>lib/ajax/salvaemail.php",
-				{email: email},
-				function(retorno){
-					if (retorno == true){
-						alert('Email Cadastrado com Sucesso!');
-						$("input[name=email]").val('');
-					}else{
-						alert('Email inválido. Tente Novamente!');
-						$("input[name=email]").val('');
-					}
-				}
-			);
-		}
-</script>
+<div class="home-bottom spacer-4x">
+	<div class="container">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h2>Com a palavra: O <strong>Cliente</strong></h2>
+            </div>
+        </div>
+	</div>
+    <div class="home-bottom-ribbon">&nbsp;</div>
+</div>
