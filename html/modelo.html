@@ -26,7 +26,9 @@
 <!--Top area begins-->
 <div class="top-area-1">
     <div class="container text-right">
-    	<p><a target="_blank" href="https://www.facebook.com/innovarearmarios"><span class="fa fa-facebook"></span></a> <a href="#"><span class="fa fa-envelope-o"></span></a> 55 43 3154 6419</p>
+    	<p><a target="_blank" href="https://www.facebook.com/innovarearmarios"><span class="fa fa-facebook"></span>
+        </a> 
+        <a href="copyright"><span class="fa fa-envelope-o"></span></a> 55 43 3154 6419</p>
     </div>
 </div>
 <div class="top-area-2">
@@ -103,3 +105,20 @@
 </body>
 
 </html>
+<script type="text/javascript">
+    function salva(){
+        var email = $("input[name=email]").val();
+        $.post("http://localhost/innovare/lib/ajax/salvaemail.php",
+                {email: email},
+                function(retorno){
+                    if (retorno == true){
+                        alert('Email Cadastrado com Sucesso!');
+                        $("input[name=email]").val('');
+                    }else{
+                        alert('Email inválido. Tente Novamente!');
+                        $("input[name=email]").val('');
+                    }
+                }
+            );
+        }
+</script>
