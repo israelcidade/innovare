@@ -77,10 +77,18 @@
             <div class="col-xs-4">
             	<div class="row">
                 	<div class="col-xs-12">FALE CONOSCO</div>
-                    <div class="col-xs-12 spacer-1x"><input type="text" placeholder="Nome" class="form-control"></div>
-                    <div class="col-xs-12 spacer-1x"><input type="email" placeholder="E-mail" class="form-control"></div>
-                    <div class="col-xs-12 spacer-1x"><textarea class="form-control" placeholder="Assunto"></textarea></div>
-                    <div class="col-xs-12 spacer-1x text-right"><input type="button" class="btn btn-danger" value="Envlar"></div>
+                    <div class="col-xs-12 spacer-1x">
+                        <input type="text" id="nome" placeholder="Nome" class="form-control">
+                    </div>
+                    <div class="col-xs-12 spacer-1x">
+                        <input type="email" id="email" placeholder="E-mail" class="form-control">
+                    </div>
+                    <div class="col-xs-12 spacer-1x">
+                        <textarea class="form-control" id="assunto" placeholder="Assunto"></textarea>
+                    </div>
+                    <div class="col-xs-12 spacer-1x text-right">
+                        <input type="button" onClick="contato()" class="btn btn-danger" value="Envlar">
+                    </div>
                 </div>
             </div>
             <div class="col-xs-4">
@@ -89,7 +97,7 @@
                     <div class="form-group">
                         <input type="email" class="form-control" id="exampleInputEmail2" placeholder="E-mail">
                     </div>
-                    <button onClick="salva()" class="btn btn-danger">Sign in</button>
+                    <button onClick="salvaEmail()" class="btn btn-danger">Sign in</button>
                    	</div>
 
             </div>
@@ -106,19 +114,33 @@
 
 </html>
 <script type="text/javascript">
-    function salva(){
+    function salvaEmail(){
         var email = $("input[id=exampleInputEmail2]").val();
-        $.post("http://localhost/innovare/lib/ajax/salvaemail.php",
-                {email: email},
+
+        $.post("<%URLPADRAO%>lib/ajax/salvaemail.php",
+            {email: email},
                 function(retorno){
-                    if (retorno == true){
-                        alert('Email Cadastrado com Sucesso!');
-                        $("input[id=exampleInputEmail2]").val('');
-                    }else{
-                        alert('Email inválido. Tente Novamente!');
-                        $("input[id=exampleInputEmail2]").val('');
-                    }
+                if (retorno == true){
+                    alert('Email Cadastrado com Sucesso!');
+                    $("input[id=exampleInputEmail2]").val('');
+                }else{
+                    alert('Email inválido. Tente Novamente!');
+                    $("input[id=exampleInputEmail2]").val('');
                 }
-            );
-        }
+            }
+        );
+    }
+
+    function contato(){
+        var nome = $("input[id=nome]").val();
+        var email = $("input[id=email]").val();
+        var assunto = $("textarea[id=assunto]").val();
+
+        $.post("<%URLPADRAO%>lib/ajax/enviacontato.php",
+            {nome: nome,email: email,assunto: assunto},
+            function(retorno){
+                alert(retorno);
+            }
+        );
+    }
 </script>
