@@ -136,11 +136,17 @@
         var email = $("input[id=email]").val();
         var assunto = $("textarea[id=assunto]").val();
 
-        $.post("<%URLPADRAO%>lib/ajax/enviacontato.php",
-            {nome: nome,email: email,assunto: assunto},
-            function(retorno){
-                alert(retorno);
-            }
-        );
+        if(nome == '' || email == '' || assunto == ''){
+            alert('Por Favor, preencha todos os campos!');
+        }else{
+            $.post("<%URLPADRAO%>lib/ajax/enviacontato.php",
+                {nome: nome,email: email,assunto: assunto},
+                function(retorno){
+                    if(retorno == 'emailerrado'){
+                        alert('Email inválido. Tente Novamente!');
+                    }
+                }
+            );
+        }
     }
 </script>

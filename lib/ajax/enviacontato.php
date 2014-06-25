@@ -8,5 +8,9 @@
 	$email = $_POST["email"];
 	$Syntaxe='#^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,6}$#';  
 	
-	echo $email;
+	if(preg_match($Syntaxe, $email)){
+
+	}else{
+		echo 'emailerrado';
+	}
 ?>
