@@ -144,6 +144,12 @@
                 function(retorno){
                     if(retorno == 'emailerrado'){
                         alert('Email inválido. Tente Novamente!');
+                    }else if(retorno == 'ok'){
+                        alert('Email Enviado com Sucesso! Aguarde nosso Contato!');
+                    }else if(retorno == 'not'){
+                        alert('Falha ao Enviar Email! Tente Novamente mais Tarde');
+                    }else if(retorno == 'teste'){
+                        alert('teste ok');
                     }
                 }
             );

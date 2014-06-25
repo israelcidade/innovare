@@ -8,4 +8,9 @@
 	define('DB_Database' , "innovare");
 	define('DB_User' , "root");
 	define('DB_Pass' , "");
+
+	//Definicoes do Eamil para contato
+	define('EMAIL_USER', "israelcbj@gmail.com");
+	define('EMAIL_PASS', "compaqmv540@!");
+	define('EMAIL_RECEB', "israelcbj@gmail.com");
 ?>
