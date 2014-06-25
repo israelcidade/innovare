@@ -2,6 +2,8 @@
 	#cadastra email
 	include('../../functions/banco.php');
 	include('../../conf/tags.php');
+	include_once("../../app/PHPMailer/class.phpmailer.php");
+	include("../../app/PHPMailer/class.smtp.php");
 	$banco = new banco;
 	$banco->Conecta();
 	
@@ -11,11 +13,36 @@
 	$Syntaxe='#^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,6}$#';  
 	
 	if(preg_match($Syntaxe, $email)){
-		if($banco->EnviaEmailContato($nome,$email,$assunto)){
-			echo 'ok';
-		}else{
-			echo 'not';
-		}
+		#Carrega classe MAILER
+		$mail = new PHPMailer();
+		// Charset para evitar erros de caracteres
+		$mail->Charset = 'UTF-8';
+		// Dados de quem está enviando o email
+		$mail->From = $email;
+		$mail->FromName = $nome;
+
+		// Setando o conteudo
+		$mail->IsHTML(true);
+		$mail->Subject = 'Mensagem enviada de teste ->';
+		$mail->Body = utf8_decode($assunto);
+            
+        // Validando a autenticação
+		$mail->IsSMTP();
+		$mail->SMTPAuth = true;
+		$mail->Host     = "ssl://smtp.gmail.com";
+		$mail->Port     = 465;
+		$mail->Username = EMAIL_USER;
+		$mail->Password = EMAIL_PASS;
+
+		// Setando o endereço de recebimento
+		$mail->AddAddress(EMAIL_RECEB);
+            
+		// Enviando o e-mail para o usuário
+        if($mail->Send()){
+        	echo 'ok';
+        }else{
+			echo 'false';
+        }
 	}else{
 		echo 'emailerrado';
 	}
