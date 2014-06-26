@@ -211,3 +211,16 @@ footer textarea.form-control{
 	color:#FFF;
 	padding:8px 25px 25px 25px;
 }
+
+.box-2-comp{
+	position:relative;
+	background-color:#17293E;
+	width:100%;
+	min-height:240px;
+	display:block;
+	margin-bottom:15px;
+}
+
+.box-2-comp img{
+	width: 530px;
+}
