@@ -98,7 +98,8 @@
                     <div class="form-group">
                         <input type="email" class="form-control" id="exampleInputEmail2" placeholder="E-mail">
                     </div>
-                    <button onClick="salvaEmail()" class="btn btn-danger">Enviar</button>
+                    <button id="button-mail" onClick="salvaEmail()" class="btn btn-danger">Enviar</button>
+                    <div id="box-loader-mail" class="btn btn-danger"><img src="<%URLPADRAO%>html/style/images/loader.gif"></div>
                    	</div>
 
             </div>
@@ -117,16 +118,21 @@
 <script type="text/javascript">
     function salvaEmail(){
         var email = $("input[id=exampleInputEmail2]").val();
-
+        $("#button-mail").hide();
+        $("#box-loader-mail").show();
         $.post("<%URLPADRAO%>lib/ajax/salvaemail.php",
             {email: email},
                 function(retorno){
                 if (retorno == true){
                     alert('Email Cadastrado com Sucesso!');
                     $("input[id=exampleInputEmail2]").val('');
+                    $("#button-mail").show();
+                    $("#box-loader-mail").hide();
                 }else{
                     alert('Email inválido. Tente Novamente!');
                     $("input[id=exampleInputEmail2]").val('');
+                    $("#button-mail").show();
+                    $("#box-loader-mail").hide();
                 }
             }
         );

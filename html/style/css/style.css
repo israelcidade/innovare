@@ -230,3 +230,9 @@ footer textarea.form-control{
 	min-width: 66px;
 	float: right;
 }
+
+#box-loader-mail{
+	display: none;
+	width: 66px;
+	float: right;
+}
