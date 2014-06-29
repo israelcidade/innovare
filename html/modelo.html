@@ -87,7 +87,8 @@
                         <textarea class="form-control" id="assunto" placeholder="Assunto"></textarea>
                     </div>
                     <div class="col-xs-12 spacer-1x text-right">
-                        <input type="button" onClick="contato()" class="btn btn-danger" value="Envlar">
+                        <input type="button" id="button-form" onClick="contato()" class="btn btn-danger" value="Enviar">
+                        <div id="box-loader" class="btn btn-danger"><img src="<%URLPADRAO%>html/style/images/loader.gif"></div>
                     </div>
                 </div>
             </div>
@@ -139,6 +140,8 @@
         if(nome == '' || email == '' || assunto == ''){
             alert('Por Favor, preencha todos os campos!');
         }else{
+            $("#button-form").hide();
+            $("#box-loader").show();
             $.post("<%URLPADRAO%>lib/ajax/enviacontato.php",
                 {nome: nome,email: email,assunto: assunto},
                 function(retorno){
@@ -149,11 +152,15 @@
                         $("input[id=nome]").val('');
                         $("input[id=email]").val('');
                         $("textarea[id=assunto]").val('');
+                        $("#button-form").show();
+                        $("#box-loader").hide();
                     }else if(retorno == 'not'){
                         alert('Falha ao Enviar Email! Tente Novamente mais Tarde');
                         $("input[id=nome]").val('');
                         $("input[id=email]").val('');
                         $("textarea[id=assunto]").val('');
+                        $("#button-form").show();
+                        $("#box-loader").hide();
                     }
                 }
             );

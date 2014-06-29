@@ -224,3 +224,7 @@ footer textarea.form-control{
 .box-2-comp img{
 	width: 530px;
 }
+
+#box-loader{
+	display: none;	
+}
