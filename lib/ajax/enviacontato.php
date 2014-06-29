@@ -23,8 +23,12 @@
 
 		// Setando o conteudo
 		$mail->IsHTML(true);
-		$mail->Subject = 'Mensagem enviada de teste ->';
-		$mail->Body = utf8_decode($assunto);
+		$mail->Subject = "Contato Site Innovare";
+		$mail->Body = utf8_decode("
+			Nome: $nome<br>
+			Email: $email<br>
+			Assunto: $assunto<br>
+			");
             
         // Validando a autenticação
 		$mail->IsSMTP();

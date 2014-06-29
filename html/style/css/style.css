@@ -226,5 +226,7 @@ footer textarea.form-control{
 }
 
 #box-loader{
-	display: none;	
+	display: none;
+	min-width: 66px;
+	float: right;
 }
